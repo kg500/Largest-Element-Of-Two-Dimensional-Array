@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Training
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] array = new int[10,10];
+            int maxElement = int.MinValue;
+            Random rand = new Random();
+            Console.WriteLine("Изначальные данные");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i,j] = rand.Next(1, 10);
+
+                    if (maxElement < array[i, j])
+                    {
+                        maxElement = array[i, j];
+                    }
+                    Console.Write(array[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Максимальный элемент: " + maxElement);
+
+            Console.SetCursorPosition(0, 15);
+            Console.WriteLine("Новые данные");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (maxElement == array[i, j])
+                    {
+                        array[i,j] = maxElement * 0;
+                    }
+
+                    Console.Write(array[i,j] + " ");
+
+                }
+                Console.WriteLine();
+            }
+            
+
+
+        }
+
+    }
+
+}
